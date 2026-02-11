@@ -1,0 +1,25 @@
+{
+    "id": "gen-15-policy-compliance-alerts",
+    "question": "You need to ensure that the security team is notified in near real-time whenever a resource becomes non-compliant with Azure Policy. What is the most efficient way to achieve this?",
+    "options": [
+        {
+            "text": "Enable 'Send to Event Grid' on the policy assignment but only for 'Deny' effects",
+            "correct": false
+        },
+        {
+            "text": "Schedule a monthly Log Analytics query to find non-compliant resources and email the results",
+            "correct": false
+        },
+        {
+            "text": "Create a custom Azure Function that periodically polls the Policy REST API",
+            "correct": false
+        },
+        {
+            "text": "Configure an Azure Monitor alert rule with a 'Policy Compliance' event from the Activity Log",
+            "correct": true
+        }
+    ],
+    "explanation": "The correct answer is **Azure Monitor alert rule from the Activity Log**.\n\n- Azure Policy writes to the **Azure Activity Log** when compliance states change. By creating an alert rule based on these specific Activity Log events, you can trigger notifications (via Action Groups) in near real-time.\n- Scheduling a monthly query is not near real-time.- Custom polling with a Function adds unnecessary complexity and latency compared to built-in alerting.",
+    "category": "Design Identity, Governance, and Monitoring",
+    "caseStudy": "scenarios/case_study_monitoring_governance.json"
+}
